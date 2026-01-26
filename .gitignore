@@ -1,0 +1,31 @@
+### Editors ###
+.vscode/*
+.vs/*
+.qtcreator/*
+
+### Build results ###
+*.exe
+*.out
+*.app
+x64/*
+x86/*
+[Bb]uild/*
+[Dd]ebug/*
+[Ll]og/*
+[Ll]ogs/*
+[Rr]elease/*
+[Rr]eleases/*
+[Oo]ut/*
+
+### C++ ###
+*.slo
+*.lo
+*.o
+*.obj
+*.a
+*.la
+*.lai
+*.so
+*.so.*
+*.dll
+*.dylib
