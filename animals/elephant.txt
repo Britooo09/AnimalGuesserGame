@@ -1,0 +1,10 @@
+land animal
+vertebrate
+mammalian
+4 legs
+big size
+has a tail
+has a trunk
+has 2 tusks
+herbivore
+lives in savannas, forests and grasslands

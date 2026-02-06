@@ -1,0 +1,33 @@
+enviroment:{	land animal , 
+				aquatic animal , 
+				fliying animal}
+vertebrate:{	vertebrate , 
+				invertebrate}	
+species:{		mammalian , 
+				reptile , 
+				arthropod}
+legs:{			2 legs , 
+				4 legs , 
+				6 legs}
+size:{			small size , 
+				big size}
+body parts:{	has a tail , 
+				has powerful jaws , 
+				has scales , 
+				has antennas , 
+				has wings , 
+				has a stinger}
+good sense:{	good sense of smell}
+diet:{			herbivore , 
+				carnivore , 
+				omnivore}
+habitat:{		colonies ,
+				farms ,
+				forests , 
+				grasslands , 
+				lakes , 
+				oceans
+				rivers , 
+				steppes ,
+				urban areas ,
+				wetlands}

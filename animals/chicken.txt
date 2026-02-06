@@ -1,0 +1,14 @@
+land animal
+vertebrate
+dinosaur
+bird
+2 legs
+small size
+has 2 wings
+has a beak
+has feathers
+lays eggs
+domesticted animal 
+livestock
+omnivore
+lives on farms
