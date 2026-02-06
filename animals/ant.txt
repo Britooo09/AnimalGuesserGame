@@ -1,10 +1,8 @@
-fliying animal
+land animal
 invertebrate
 arthropod
 6 legs
 small size
 has 2 antennae
-has wings
-has a stinger
-herbivore
+omnivore
 lives in colonies everywhere
