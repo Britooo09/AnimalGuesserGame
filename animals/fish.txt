@@ -1,0 +1,9 @@
+aquatic	animal
+vertebrate
+lays eggs
+has scales
+has fins
+has gills
+has a tail
+omnivore
+lives in oceans, rivers and lakes

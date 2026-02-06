@@ -1,0 +1,11 @@
+land animal
+semiaquatic animal
+vertebrate
+reptile
+4 legs
+big size
+has a tail
+has powerful jaws
+has scales
+carnivore
+lives in rivers, lakes and wetlands
