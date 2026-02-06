@@ -1,0 +1,9 @@
+land animal
+farm animal
+vertebrate
+mammalian
+4 legs
+big size
+herbivore
+produces milk
+has hooves

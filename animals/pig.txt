@@ -1,0 +1,8 @@
+land animal
+farm animal
+vertebrate
+mammalian
+4 legs
+omnivore
+has a tail
+spiral tail

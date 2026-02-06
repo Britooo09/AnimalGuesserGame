@@ -1,0 +1,10 @@
+land animal
+farm animal
+vertebrate
+mammalian
+4 legs
+herbivore
+has horns
+has hooves
+good at climbing
+lives on mountains
