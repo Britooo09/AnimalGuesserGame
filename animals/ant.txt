@@ -3,6 +3,6 @@ invertebrate
 arthropod
 6 legs
 small size
-has 2 antennae
+has antennas
 omnivore
 lives in colonies everywhere
