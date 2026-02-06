@@ -2,8 +2,8 @@ land animal
 vertebrate
 mammalian
 4 legs
-has a tail
 big size
+has a tail
 has a tall neck
 has long legs
 herbivore
