@@ -1,0 +1,9 @@
+semiaquatic animal
+vertebrate
+bird
+has feathers
+has a beak
+has webbed feet
+omnivore
+oviparous
+lives in ponds and rivers
