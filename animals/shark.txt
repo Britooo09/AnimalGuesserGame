@@ -1,0 +1,7 @@
+aquatic animal
+vertebrate
+has fins
+has gills
+carnivore
+has many rows of teeth
+lives in oceans
