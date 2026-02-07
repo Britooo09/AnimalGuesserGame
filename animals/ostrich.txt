@@ -1,0 +1,8 @@
+land animal 
+vertebrate 
+bird
+big size
+flightless
+fast runner
+oviparous
+lives in savannas

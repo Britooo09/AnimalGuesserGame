@@ -1,0 +1,8 @@
+aquatic animal
+vertebrate 
+bird
+has feathers
+flightless
+carnivore
+lives in cold areas
+has a layer of fat

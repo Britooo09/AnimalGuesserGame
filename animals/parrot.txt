@@ -1,0 +1,8 @@
+land animal 
+vertebrate 
+bird
+small size
+mimics sounds
+colorful feathers
+herbivore
+lives in tropical forests
