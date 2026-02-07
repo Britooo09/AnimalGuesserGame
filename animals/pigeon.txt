@@ -1,0 +1,7 @@
+land animal 
+vertebrate 
+bird
+small size
+common in cities
+lives in urban areas
+omnivore

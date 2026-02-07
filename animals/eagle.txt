@@ -1,0 +1,9 @@
+land animal
+vertebrate 
+bird
+big size
+carnivore
+sharp beak
+has feathers
+flies
+exceptional hunter
