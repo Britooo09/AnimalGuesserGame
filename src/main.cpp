@@ -1,11 +1,9 @@
 #include <iostream>
 #include "../include/node.h"
 #include "../include/programLogic.h"
-
 using namespace std;
 
-int main()
-{
+int main() {
 	cout << "--- THIS IS A TEST. IT WILL BE REMOVED LATER ---" << endl << endl;
 
 	Node* ptrRoot = new Node("Is it a mammal?", true);
@@ -38,9 +36,10 @@ int main()
 
 	cout << "Current node: " << ptrCurrentNode->text << endl;
 	cout << "Yes branch: " << ((ptrCurrentNode->yes == nullptr) ? ("Null") : (ptrCurrentNode->yes->text)) << endl;
-	cout << "No branch: " << ((ptrCurrentNode->no == nullptr) ? ("Null") : (ptrCurrentNode->no->text)) << endl;
+	cout << "No branch: " << ((ptrCurrentNode->no == nullptr) ? ("Null") : (ptrCurrentNode->no->text)) << endl << endl;
 
-
+	// Free all dynamic memory before exiting (by explicitly passing the root)
+	cleanMemory(ptrRoot);
 
 	return 0;
 }
