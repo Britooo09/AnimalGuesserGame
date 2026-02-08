@@ -1,10 +1,12 @@
 #pragma once
+#include "../include/node.h"
+#include <string>
 
 // Start the tree exploration by asking the user
 void play();
 
 // When the program fails at guessing, this function creates a new question and animal
-void learn();
+void learn(Node* ptrCurrentNode, std::string newAnimal, std::string newQuestion);
 
 // Save the tree structure to a file
 void saveTree();

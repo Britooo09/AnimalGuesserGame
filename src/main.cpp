@@ -38,9 +38,19 @@ int main()
 
 	cout << "Current node: " << ptrCurrentNode->text << endl;
 	cout << "Yes branch: " << ((ptrCurrentNode->yes == nullptr) ? ("Null") : (ptrCurrentNode->yes->text)) << endl;
+	cout << "No branch: " << ((ptrCurrentNode->no == nullptr) ? ("Null") : (ptrCurrentNode->no->text)) << endl << endl;
+
+	learn(ptrCurrentNode, "Snake", "Does it slither?");
+
+	cout << "Current node: " << ptrCurrentNode->text << endl;
+	cout << "Yes branch: " << ((ptrCurrentNode->yes == nullptr) ? ("Null") : (ptrCurrentNode->yes->text)) << endl;
+	cout << "No branch: " << ((ptrCurrentNode->no == nullptr) ? ("Null") : (ptrCurrentNode->no->text)) << endl << endl;
+
+	ptrCurrentNode = ptrCurrentNode->yes;
+
+	cout << "Current node: " << ptrCurrentNode->text << endl;
+	cout << "Yes branch: " << ((ptrCurrentNode->yes == nullptr) ? ("Null") : (ptrCurrentNode->yes->text)) << endl;
 	cout << "No branch: " << ((ptrCurrentNode->no == nullptr) ? ("Null") : (ptrCurrentNode->no->text)) << endl;
-
-
 
 	return 0;
 }
