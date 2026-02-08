@@ -9,9 +9,3 @@ file(GLOB SOURCES "src/*.cpp")
 
 add_executable(animalguessergame ${SOURCES})
 target_include_directories(animalguessergame PUBLIC ${PROJECT_SOURCE_DIR}/include)
-
-if(MSVC)
-    target_compile_options(animalguessergame PRIVATE /W4)
-else()
-    target_compile_options(animalguessergame PRIVATE -Wall -Wextra)
-endif()
