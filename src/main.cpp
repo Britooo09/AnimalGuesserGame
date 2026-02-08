@@ -8,15 +8,21 @@ int main()
 {
 	cout << "--- THIS IS A TEST. IT WILL BE REMOVED LATER ---" << endl << endl;
 
-	Node* ptrRoot = new Node("Is it a mammal?", true);
-	ptrRoot->yes = new Node("Dog", false);
-	ptrRoot->no = new Node("Lizard", false);
+	//Node* ptrRoot = new Node("Is it a mammal?", true);
+	//ptrRoot->yes = new Node("Dog", false);
+	//ptrRoot->no = new Node("Lizard", false);
+	//ptrRoot->levelCode = "R";
+
+	Node* ptrRoot = new Node("Lizard", false);
+	ptrRoot->levelCode = "R";
+	ptrRoot->makeQuestion("Is it a mammal?", "Dog");
 
 	Node* ptrCurrentNode = ptrRoot;
 
 	cout << "Current node: " << ptrCurrentNode->text << endl;
 	cout << "Yes branch: " << ptrCurrentNode->yes->text << endl;
-	cout << "No branch: " << ptrCurrentNode->no->text << endl << endl;
+	cout << "No branch: " << ptrCurrentNode->no->text << endl ;
+	cout << "Level code: " << ptrCurrentNode->levelCode << endl << endl;
 
 	cout << "Move to the \"yes\" branch (Dog):" << endl << endl;
 	ptrCurrentNode = ptrCurrentNode->yes;
@@ -40,7 +46,7 @@ int main()
 	cout << "Yes branch: " << ((ptrCurrentNode->yes == nullptr) ? ("Null") : (ptrCurrentNode->yes->text)) << endl;
 	cout << "No branch: " << ((ptrCurrentNode->no == nullptr) ? ("Null") : (ptrCurrentNode->no->text)) << endl << endl;
 
-	learn(ptrCurrentNode, "Snake", "Does it slither?");
+	learn(ptrCurrentNode, "Does it slither?", "Snake");
 
 	cout << "Current node: " << ptrCurrentNode->text << endl;
 	cout << "Yes branch: " << ((ptrCurrentNode->yes == nullptr) ? ("Null") : (ptrCurrentNode->yes->text)) << endl;
@@ -51,6 +57,8 @@ int main()
 	cout << "Current node: " << ptrCurrentNode->text << endl;
 	cout << "Yes branch: " << ((ptrCurrentNode->yes == nullptr) ? ("Null") : (ptrCurrentNode->yes->text)) << endl;
 	cout << "No branch: " << ((ptrCurrentNode->no == nullptr) ? ("Null") : (ptrCurrentNode->no->text)) << endl;
+
+	saveTree(ptrRoot);
 
 	return 0;
 }

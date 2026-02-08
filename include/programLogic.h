@@ -1,6 +1,7 @@
 #pragma once
 #include "../include/node.h"
-#include <string>
+#include <iostream>
+#include <fstream>
 
 // Start the tree exploration by asking the user
 void play();
@@ -9,7 +10,8 @@ void play();
 void learn(Node* ptrCurrentNode, std::string newAnimal, std::string newQuestion);
 
 // Save the tree structure to a file
-void saveTree();
+void to_json(nlohmann::ordered_json& j, const Node* ptrSaveNode);
+void saveTree(Node* ptrRoot);
 
 // Load the tree structure from a file de texto
 void loadTree();
