@@ -74,6 +74,7 @@ void GameLogic::cliHandleAnimalNode(Node* ptrNode) {
 
         if (isYes(userInput)) {
             play();
+            return;
         }
         else {
             std::cout << "Thanks for playing!" << std::endl;
