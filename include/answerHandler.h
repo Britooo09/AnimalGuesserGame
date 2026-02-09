@@ -1,19 +1,21 @@
 #pragma once
-
-#include <string>
 #include <stack>
 #include "node.h"
+#include <string>
 
 class AnswerHandler {
 public:
     AnswerHandler();
 
-    Node* processAnswer(Node* ptrCurrentNode, const std::string& answer);
+    // Procesa la respuesta del usuario y devuelve el siguiente nodo a visitar
+    Node* processAnswer(Node* ptrNode, const std::string& answer);
+
+    // Devuelve el último nodo guardado en la pila de "probably"
+    Node* popProbablyNode();
 
 private:
     std::stack<Node*> probablyStack;
 
-    bool isYes(const std::string& answer);
     bool isProbablyYes(const std::string& answer);
     bool isProbablyNo(const std::string& answer);
 };

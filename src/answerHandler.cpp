@@ -1,41 +1,40 @@
-#include "../include/answerHandler.h"
+#include "answerHandler.h"
 #include <algorithm>
 
 AnswerHandler::AnswerHandler() {}
 
-bool AnswerHandler::isYes(const std::string& answer) {
-    std::string lower = answer;
-    std::transform(lower.begin(), lower.end(), lower.begin(), ::tolower);
-    return (lower == "yes" || lower == "y");
-}
-
 bool AnswerHandler::isProbablyYes(const std::string& answer) {
     std::string lower = answer;
     std::transform(lower.begin(), lower.end(), lower.begin(), ::tolower);
-    return (lower == "probably yes");
+    return (lower == "probably yes" || lower == "py");
 }
 
 bool AnswerHandler::isProbablyNo(const std::string& answer) {
     std::string lower = answer;
     std::transform(lower.begin(), lower.end(), lower.begin(), ::tolower);
-    return (lower == "probably no");
+    return (lower == "probably no" || lower == "pn");
 }
 
-Node* AnswerHandler::processAnswer(Node* ptrCurrentNode, const std::string& answer) {
-
-    if (isYes(answer)) {
-        return ptrCurrentNode->yes;
-    }
-
+Node* AnswerHandler::processAnswer(Node* ptrNode, const std::string& answer) {
     if (isProbablyYes(answer)) {
-        probablyStack.push(ptrCurrentNode);
-        return ptrCurrentNode->yes;
+        probablyStack.push(ptrNode);
+        return ptrNode->yes;
     }
-
     if (isProbablyNo(answer)) {
-        probablyStack.push(ptrCurrentNode);
-        return ptrCurrentNode->no;
+        probablyStack.push(ptrNode);
+        return ptrNode->no;
     }
 
-    return ptrCurrentNode->no;
+    // Respuestas definitivas
+    if (answer == "yes" || answer == "y") return ptrNode->yes;
+    if (answer == "no" || answer == "n") return ptrNode->no;
+
+    return nullptr; // fallback
+}
+
+Node* AnswerHandler::popProbablyNode() {
+    if (probablyStack.empty()) return nullptr;
+    Node* topNode = probablyStack.top();
+    probablyStack.pop();
+    return topNode;
 }
