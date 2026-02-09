@@ -1,6 +1,6 @@
 #include <iostream>
 #include "../include/node.h"
-#include "../include/programLogic.h"
+#include "../include/gameLogic.h" 
 
 using namespace std;
 
@@ -39,8 +39,8 @@ int main()
 	cout << "Current node: " << ptrCurrentNode->text << endl;
 	cout << "Yes branch: " << ((ptrCurrentNode->yes == nullptr) ? ("Null") : (ptrCurrentNode->yes->text)) << endl;
 	cout << "No branch: " << ((ptrCurrentNode->no == nullptr) ? ("Null") : (ptrCurrentNode->no->text)) << endl;
-
-
+	GameLogic game;
+	game.play();	
 
 	return 0;
 }
