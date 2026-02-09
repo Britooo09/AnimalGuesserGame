@@ -28,13 +28,22 @@ void GameLogic::questionLoop(Node* ptrNode) {
     }
 
     if (ptrNode->isQuestion) {
-        cliInteraction(ptrNode) ? questionLoop(ptrNode->yes) : questionLoop(ptrNode->no);
+        std::cout << ptrNode->text 
+                  << " (yes / no / probably yes / probably no): ";
+
+        std::string userInput;
+        std::getline(std::cin, userInput);
+
+        Node* ptrNextNode = answerHandler.processAnswer(ptrNode, userInput);
+
+        questionLoop(ptrNextNode);
     }
     else {
-        // Reached an animal node
         cliHandleAnimalNode(ptrNode);
     }
 }
+
+
 
 bool GameLogic::isYes(const std::string& answer) {
     std::string lower = answer;
@@ -46,7 +55,6 @@ bool GameLogic::isYes(const std::string& answer) {
 }
 
 bool GameLogic::cliInteraction(Node* ptrNode) {
-    // Ask the question (UI layer must handle input/output)
     std::cout << ptrNode->text << " (yes/no): ";
 
     std::string userInput;
@@ -54,12 +62,12 @@ bool GameLogic::cliInteraction(Node* ptrNode) {
 
     if (isYes(userInput)) {
         return true;
-        questionLoop(ptrNode->yes);
     }
     else {
-        questionLoop(ptrNode->no);
+        return false;
     }
 }
+
 
 void GameLogic::cliHandleAnimalNode(Node* ptrNode) {
     std::cout << "I think your animal is: " << ptrNode->text << std::endl;

@@ -2,6 +2,7 @@
 
 #include "node.h"
 #include <string>
+#include "answerHandler.h"
 
 class GameLogic {
 public:
@@ -12,6 +13,7 @@ public:
 private:
     Node* ptrRoot;
     Node* ptrCurrentNode;
+    AnswerHandler answerHandler;
 
     // Recursive question loop
     void questionLoop(Node* ptrNode);
