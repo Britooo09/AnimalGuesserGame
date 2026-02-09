@@ -17,21 +17,22 @@ bool AnswerHandler::isProbablyNo(const std::string& answer) {
 }
 
 Node* AnswerHandler::processAnswer(Node* ptrNode, const std::string& answer) {
-    std::cout << answer << std::endl;
     if (isProbablyYes(answer)) {
-        probablyStack.push(ptrNode);
+        // El usuario quiere ir por SI, así que guardamos el NO en la pila para el futuro
+        if (ptrNode->no) probablyStack.push(ptrNode->no);
         return ptrNode->yes;
     }
     if (isProbablyNo(answer)) {
-        probablyStack.push(ptrNode);
+        // El usuario quiere ir por NO, así que guardamos el SI en la pila para el futuro
+        if (ptrNode->yes) probablyStack.push(ptrNode->yes);
         return ptrNode->no;
     }
 
-    // Respuestas definitivas
+    // Respuestas definitivas (sin cambios)
     if (answer == "yes" || answer == "y") return ptrNode->yes;
     if (answer == "no" || answer == "n") return ptrNode->no;
 
-    return nullptr; // fallback
+    return nullptr;
 }
 
 Node* AnswerHandler::popProbablyNode() {

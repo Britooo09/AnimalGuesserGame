@@ -33,20 +33,20 @@ Node* GameLogic::getRoot() {
 }
 
 void GameLogic::questionLoop(Node* ptrNode) {
-    if (!ptrNode) {
-        std::cerr << "Error: null node encountered." << std::endl;
-        return;
-    }
+    if (!ptrNode) return;
 
     if (ptrNode->isQuestion) {
         Node* nextNode = answerHandler.processAnswer(ptrNode, cliInteraction(ptrNode));
         if (nextNode) {
             questionLoop(nextNode);
-        } else {
-            Node* probablyNode = answerHandler.popProbablyNode();
-            if (probablyNode) questionLoop(probablyNode);
         }
-    } else {
+        else {
+            // Si el input fue inválido, intentar recuperar de la pila
+            Node* alternativeNode = answerHandler.popProbablyNode();
+            if (alternativeNode) questionLoop(alternativeNode);
+        }
+    }
+    else {
         cliHandleAnimalNode(ptrNode);
     }
 }
@@ -79,16 +79,19 @@ void GameLogic::cliHandleAnimalNode(Node* ptrNode) {
 
     if (isYes(userInput)) {
         std::cout << "Great! Do you want to play again? (yes/no): ";
-        std::getline(std::cin, userInput);
-        if (isYes(userInput)) play();
-        else std::cout << "Thanks for playing!" << std::endl;
-    } else {
-        // Vuelve automáticamente al nodo de "probably" sin avisar
-        Node* probablyNode = answerHandler.popProbablyNode();
-        if (probablyNode) { 
-            questionLoop(probablyNode);
+        // ... (resto del código de éxito)
+    }
+    else {
+        // Aquí está la clave:
+        Node* alternativePath = answerHandler.popProbablyNode();
+        if (alternativePath) {
+            std::cout << "Wait... I remember you weren't sure about a previous question. Let's try the other path!" << std::endl;
+            questionLoop(alternativePath);
         }
-        // Si no hay nodo en la pila, termina silenciosamente
+        else {
+            std::cout << "I give up. I don't know this animal." << std::endl;
+            // Aquí llamarías a learn() en el futuro
+        }
     }
 }
 
