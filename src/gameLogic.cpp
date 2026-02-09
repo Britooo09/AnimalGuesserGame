@@ -5,8 +5,22 @@
 GameLogic::GameLogic() {
     // Initial tree
     ptrRoot = new Node("Is it a mammal?", true);
-    ptrRoot->yes = new Node("Dog", false);
-    ptrRoot->no = new Node("Lizard", false);
+
+	ptrRoot->yes = new Node("Does it have fur?", true);
+	ptrRoot->yes->yes = new Node("Does it bark?", true);
+	ptrRoot->yes->yes->yes = new Node("Dog", false);
+	ptrRoot->yes->yes->no = new Node("Cat", false);
+	ptrRoot->yes->no = new Node("Does it have a trunk?", true);
+	ptrRoot->yes->no->yes = new Node("Elephant", false);
+	ptrRoot->yes->no->no = new Node("Dolphin", false);
+
+	ptrRoot->no = new Node("Does it fly?", true);
+	ptrRoot->no->yes = new Node("Does it have a beak?", true);
+	ptrRoot->no->yes->yes = new Node("Eagle", false);
+	ptrRoot->no->yes->no = new Node("Bat", false);
+	ptrRoot->no->no = new Node("Does it have scales?", true);
+	ptrRoot->no->no->yes = new Node("Snake", false);
+	ptrRoot->no->no->no = new Node("Frog", false);
 
     ptrCurrentNode = nullptr;
 }
