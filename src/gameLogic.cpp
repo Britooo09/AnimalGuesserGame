@@ -39,7 +39,7 @@ void GameLogic::questionLoop(Node* ptrNode) {
     }
 
     if (ptrNode->isQuestion) {
-        Node* nextNode = answerHandler.processAnswer(ptrNode, cliInteraction(ptrNode) ? "yes" : "no");
+        Node* nextNode = answerHandler.processAnswer(ptrNode, cliInteraction(ptrNode));
         if (nextNode) {
             questionLoop(nextNode);
         } else {
@@ -57,11 +57,18 @@ bool GameLogic::isYes(const std::string& answer) {
     return (lower == "yes" || lower == "y");
 }
 
-bool GameLogic::cliInteraction(Node* ptrNode) {
+std::string GameLogic::cliInteraction(Node* ptrNode) {
     std::cout << ptrNode->text << " (yes/no/probably yes/probably no): ";
     std::string userInput;
     std::getline(std::cin, userInput);
-    return (userInput == "yes" || userInput == "y" || userInput == "probably yes" || userInput == "py");
+
+    // Normalización rápida para no complicar el processAnswer
+    if (userInput == "y") return "yes";
+    if (userInput == "n") return "no";
+    if (userInput == "py") return "probably yes";
+    if (userInput == "pn") return "probably no";
+
+    return userInput; // Retorna lo que sea que haya escrito
 }
 
 void GameLogic::cliHandleAnimalNode(Node* ptrNode) {
@@ -78,7 +85,9 @@ void GameLogic::cliHandleAnimalNode(Node* ptrNode) {
     } else {
         // Vuelve automáticamente al nodo de "probably" sin avisar
         Node* probablyNode = answerHandler.popProbablyNode();
-        if (probablyNode) questionLoop(probablyNode);
+        if (probablyNode) { 
+            questionLoop(probablyNode);
+        }
         // Si no hay nodo en la pila, termina silenciosamente
     }
 }

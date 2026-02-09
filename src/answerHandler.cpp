@@ -1,6 +1,7 @@
 #include "answerHandler.h"
 #include <algorithm>
 
+
 AnswerHandler::AnswerHandler() {}
 
 bool AnswerHandler::isProbablyYes(const std::string& answer) {
@@ -16,6 +17,7 @@ bool AnswerHandler::isProbablyNo(const std::string& answer) {
 }
 
 Node* AnswerHandler::processAnswer(Node* ptrNode, const std::string& answer) {
+    std::cout << answer << std::endl;
     if (isProbablyYes(answer)) {
         probablyStack.push(ptrNode);
         return ptrNode->yes;
@@ -33,7 +35,9 @@ Node* AnswerHandler::processAnswer(Node* ptrNode, const std::string& answer) {
 }
 
 Node* AnswerHandler::popProbablyNode() {
-    if (probablyStack.empty()) return nullptr;
+    if (probablyStack.empty()) { 
+        return nullptr; 
+    }
     Node* topNode = probablyStack.top();
     probablyStack.pop();
     return topNode;

@@ -18,6 +18,6 @@ private:
 
     void questionLoop(Node* ptrNode);
     bool isYes(const std::string& answer);
-    bool cliInteraction(Node* ptrNode);
+    std::string cliInteraction(Node* ptrNode);
     void cliHandleAnimalNode(Node* ptrNode);
 };

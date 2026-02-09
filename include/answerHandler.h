@@ -1,5 +1,6 @@
 #pragma once
 #include <stack>
+#include <iostream>
 #include "node.h"
 #include <string>
 
