@@ -1,4 +1,4 @@
-#include "../include/programLogic.h"
+#include "programLogic.h"
 
 void play() {
 
