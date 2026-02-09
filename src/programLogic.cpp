@@ -1,9 +1,5 @@
 #include "../include/programLogic.h"
 
-void play() {
-
-}
-
 void learn() {
 
 }

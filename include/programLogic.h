@@ -1,8 +1,5 @@
 #pragma once
 
-// Start the tree exploration by asking the user
-void play();
-
 // When the program fails at guessing, this function creates a new question and animal
 void learn();
 
