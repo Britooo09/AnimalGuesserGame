@@ -1,6 +1,4 @@
-#include "gameLogic.h"
-
-
+#include "../include/programLogic.h"
 
 void learn() {
 

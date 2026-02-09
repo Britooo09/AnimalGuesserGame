@@ -1,13 +1,14 @@
 #include "../include/gameLogic.h"
+#include "../include/programLogic.h"
 #include <iostream>
 
 GameLogic::GameLogic() {
-    // Initial tree (temporary example)
+    // Initial tree
     ptrRoot = new Node("Is it a mammal?", true);
     ptrRoot->yes = new Node("Dog", false);
     ptrRoot->no = new Node("Lizard", false);
 
-    ptrCurrentNode = ptrRoot;
+    ptrCurrentNode = nullptr;
 }
 
 void GameLogic::play() {
@@ -15,46 +16,23 @@ void GameLogic::play() {
     questionLoop(ptrCurrentNode);
 }
 
-void GameLogic::processAnswer(const std::string& answer) {
-    if (!ptrCurrentNode) return;
-
-    if (ptrCurrentNode->isQuestion) {
-        if (isYes(answer)) {
-            ptrCurrentNode = ptrCurrentNode->yes;
-        }
-        else {
-            ptrCurrentNode = ptrCurrentNode->no;
-        }
-        questionLoop(ptrCurrentNode);
-    }
-    else {
-        handleAnimalNode(ptrCurrentNode);
-    }
+Node* GameLogic::getRoot()
+{
+	return ptrRoot;
 }
 
 void GameLogic::questionLoop(Node* ptrNode) {
-    if (ptrNode == nullptr) {
+    if (!ptrNode) {
         std::cerr << "Error: null node encountered." << std::endl;
         return;
     }
 
     if (ptrNode->isQuestion) {
-        // Ask the question (UI layer must handle input/output)
-        std::cout << ptrNode->text << " (yes/no): ";
-
-        std::string userInput;
-        std::getline(std::cin, userInput);
-
-        if (isYes(userInput)) {
-            questionLoop(ptrNode->yes);
-        }
-        else {
-            questionLoop(ptrNode->no);
-        }
+        cliInteraction(ptrNode) ? questionLoop(ptrNode->yes) : questionLoop(ptrNode->no);
     }
     else {
         // Reached an animal node
-        handleAnimalNode(ptrNode);
+        cliHandleAnimalNode(ptrNode);
     }
 }
 
@@ -67,7 +45,23 @@ bool GameLogic::isYes(const std::string& answer) {
     return (lower == "yes" || lower == "y");
 }
 
-void GameLogic::handleAnimalNode(Node* ptrNode) {
+bool GameLogic::cliInteraction(Node* ptrNode) {
+    // Ask the question (UI layer must handle input/output)
+    std::cout << ptrNode->text << " (yes/no): ";
+
+    std::string userInput;
+    std::getline(std::cin, userInput);
+
+    if (isYes(userInput)) {
+        return true;
+        questionLoop(ptrNode->yes);
+    }
+    else {
+        questionLoop(ptrNode->no);
+    }
+}
+
+void GameLogic::cliHandleAnimalNode(Node* ptrNode) {
     std::cout << "I think your animal is: " << ptrNode->text << std::endl;
     std::cout << "Was I correct? (yes/no): ";
 
@@ -90,14 +84,6 @@ void GameLogic::handleAnimalNode(Node* ptrNode) {
         std::cout << "Learning mode should be called here." << std::endl;
 
         // Placeholder for the future learning function
-        learnNewAnimal(ptrNode);
+        learn();
     }
-}
-
-void GameLogic::learnNewAnimal(Node* ptrNode) {
-    // TODO: Implement the learning logic here
-    // Example:
-    // 1. Ask user for the correct animal
-    // 2. Ask for a distinguishing question
-    // 3. Call ptrNode->makeQuestion(...)
 }
