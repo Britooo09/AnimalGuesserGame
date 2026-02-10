@@ -1,6 +1,7 @@
 #pragma once
 
 #include "node.h"
+#include "answerHandler.h"
 #include <string>
 
 class GameLogic {
@@ -13,15 +14,10 @@ private:
     Node* ptrRoot;
     Node* ptrCurrentNode;
 
-    // Recursive question loop
+    AnswerHandler answerHandler;
+
     void questionLoop(Node* ptrNode);
-
-    // This function must NOT request input. It only evaluates the answer
     bool isYes(const std::string& answer);
-
-    // Function for CLI cin and cout interaction
-	bool cliInteraction(Node* ptrNode);
-
-    // Called when the game reaches an animal node
+    std::string cliInteraction(Node* ptrNode);
     void cliHandleAnimalNode(Node* ptrNode);
 };
