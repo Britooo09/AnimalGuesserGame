@@ -1,5 +1,6 @@
 #pragma once
-#include "../include/node.h"
+#include "node.h"
+#include "json.hpp"
 #include <iostream>
 #include <fstream>
 #include <regex>
