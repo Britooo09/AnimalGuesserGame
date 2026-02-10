@@ -28,7 +28,7 @@ target_link_libraries(animalguesser_cli PRIVATE GameCore)
 
 # 6. TARGET: GUI App (For Qt)
 if(Qt6_FOUND)
-    file(GLOB GUI_SOURCES "src/gui/*.cpp" "src/gui/*.h" "src/gui/*.ui")
+    file(GLOB GUI_SOURCES "src/gui/*.cpp" "src/gui/*.h" "src/gui/*.ui" "*.qrc")
     add_executable(animalguesser_gui ${GUI_SOURCES})
     target_link_libraries(animalguesser_gui PRIVATE GameCore Qt6::Widgets)
     
