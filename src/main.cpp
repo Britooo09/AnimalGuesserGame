@@ -1,6 +1,6 @@
 #include <iostream>
 #include "../include/node.h"
-#include "../include/programLogic.h"
+#include "../include/gameLogic.h" 
 
 using namespace std;
 
@@ -30,59 +30,10 @@ int main()
 // Test loading the tree from a file
 	//Node* ptrRoot = loadTree();
 
-// Test the makeQuestion function
-	Node* ptrRoot = new Node("Lizard", false);
-	ptrRoot->levelCode = "R";
-	ptrRoot->makeQuestion("Is it a mammal?", "Dog");
+	GameLogic game;
+	game.play();
 
-	Node* ptrCurrentNode = ptrRoot;
-
-	cout << "Current node: " << ptrCurrentNode->text << endl;
-	cout << "Yes branch: " << ((ptrCurrentNode->yes == nullptr) ? ("Null") : (ptrCurrentNode->yes->text)) << endl;
-	cout << "No branch: " << ((ptrCurrentNode->no == nullptr) ? ("Null") : (ptrCurrentNode->no->text)) << endl;
-	cout << "Level code: " << ptrCurrentNode->levelCode << endl << endl;
-
-	advanceToNextNode(ptrCurrentNode, true);
-	cout << "Move to the \"yes\" branch (Dog):" << endl << endl;
-	
-	cout << "Current node: " << ptrCurrentNode->text << endl;
-	cout << "Yes branch: " << ((ptrCurrentNode->yes == nullptr) ? ("Null") : (ptrCurrentNode->yes->text)) << endl;
-	cout << "No branch: " << ((ptrCurrentNode->no == nullptr) ? ("Null") : (ptrCurrentNode->no->text)) << endl;
-	cout << "Level code: " << ptrCurrentNode->levelCode << endl << endl;
-	
-	ptrCurrentNode->makeQuestion("Does it meow?", "Cat");
-	cout << "Check the values again:" << endl << endl;
-
-	cout << "Current node: " << ptrCurrentNode->text << endl;
-	cout << "Yes branch: " << ((ptrCurrentNode->yes == nullptr) ? ("Null") : (ptrCurrentNode->yes->text)) << endl;
-	cout << "No branch: " << ((ptrCurrentNode->no == nullptr) ? ("Null") : (ptrCurrentNode->no->text)) << endl;
-	cout << "Level code: " << ptrCurrentNode->levelCode << endl << endl;
-	
-	advanceToNextNode(ptrCurrentNode, false);
-	cout << "Move to the \"no\" branch (Dog):" << endl << endl;
-
-	cout << "Current node: " << ptrCurrentNode->text << endl;
-	cout << "Yes branch: " << ((ptrCurrentNode->yes == nullptr) ? ("Null") : (ptrCurrentNode->yes->text)) << endl;
-	cout << "No branch: " << ((ptrCurrentNode->no == nullptr) ? ("Null") : (ptrCurrentNode->no->text)) << endl;
-	cout << "Level code: " << ptrCurrentNode->levelCode << endl << endl;
-
-	learn(ptrCurrentNode, "Does it slither?", "Snake", ptrRoot);
-	cout << "Check the values again:" << endl << endl;
-
-	cout << "Current node: " << ptrCurrentNode->text << endl;
-	cout << "Yes branch: " << ((ptrCurrentNode->yes == nullptr) ? ("Null") : (ptrCurrentNode->yes->text)) << endl;
-	cout << "No branch: " << ((ptrCurrentNode->no == nullptr) ? ("Null") : (ptrCurrentNode->no->text)) << endl;
-	cout << "Level code: " << ptrCurrentNode->levelCode << endl << endl;
-
-	advanceToNextNode(ptrCurrentNode, true);
-	cout << "Move to the \"yes\" branch (Snake):" << endl << endl;
-
-	cout << "Current node: " << ptrCurrentNode->text << endl;
-	cout << "Yes branch: " << ((ptrCurrentNode->yes == nullptr) ? ("Null") : (ptrCurrentNode->yes->text)) << endl;
-	cout << "No branch: " << ((ptrCurrentNode->no == nullptr) ? ("Null") : (ptrCurrentNode->no->text)) << endl;
-	cout << "Level code: " << ptrCurrentNode->levelCode << endl << endl;
-
-
+	cout << "The root of this tree is: " << game.getRoot()->text << endl;
 
 	return 0;
 }

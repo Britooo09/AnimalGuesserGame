@@ -4,9 +4,6 @@
 #include <fstream>
 #include <regex>
 
-// Start the tree exploration by asking the user
-void play();
-
 // When the program fails at guessing, this function creates a new question and animal
 void learn(Node* ptrCurrentNode, std::string newAnimal, std::string newQuestion, Node* ptrRoot);
 
