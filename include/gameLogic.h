@@ -14,7 +14,7 @@ private:
     Node* ptrRoot;
     Node* ptrCurrentNode;
 
-    AnswerHandler answerHandler; // manejador de respuestas
+    AnswerHandler answerHandler;
 
     void questionLoop(Node* ptrNode);
     bool isYes(const std::string& answer);

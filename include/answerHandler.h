@@ -8,10 +8,10 @@ class AnswerHandler {
 public:
     AnswerHandler();
 
-    // Procesa la respuesta del usuario y devuelve el siguiente nodo a visitar
+	// Process the user's answer and return the next node to navigate to
     Node* processAnswer(Node* ptrNode, const std::string& answer);
 
-    // Devuelve el último nodo guardado en la pila de "probably"
+	// Return the last saved node from the probably stack
     Node* popProbablyNode();
 
 private:
