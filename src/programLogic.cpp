@@ -3,6 +3,21 @@
 #include "../include/gameLogic.h"
 #include <iostream>
 
+int countAnimals(Node* ptrRoot) {
+	// Base case: if the node is null, it contributes 0 animals
+    if (ptrRoot == nullptr) {
+        return 0;
+    }
+
+	// If it's a leaf node (not a question), it contributes 1 animal
+    if (!ptrRoot->isQuestion) {
+        return 1;
+    }
+
+	// Recursive case: sum the counts from the "yes" and "no" branches
+    return countAnimals(ptrRoot->yes) + countAnimals(ptrRoot->no);
+}
+
 // Recursive deletion in post-order (left, right, root)
 static void deleteTree(Node* node) {
     std::cout << "Deleted node" << std::endl;

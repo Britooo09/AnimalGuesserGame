@@ -9,6 +9,7 @@ GameLogic::GameLogic() {
 }
 
 void GameLogic::play() {
+    std::cout << "Animales cargados actualmente: " << countAnimals(getRoot()) << std::endl << std::endl;
     ptrCurrentNode = ptrRoot;
     questionLoop(ptrCurrentNode);
 }
@@ -84,6 +85,10 @@ void GameLogic::cliHandleAnimalNode(Node* ptrNode) {
 			std::getline(std::cin, newQuestion);
 			// Here you could implement learning logic to add the new animal
 			learn(ptrNode, newQuestion, newAnimal, getRoot()); // Placeholder values for learning
+            std::cout << "Great! Do you want to play again? (yes/no): ";
+            std::getline(std::cin, userInput);
+            if (isYes(userInput)) play();
+            else std::cout << "Thanks for playing!" << std::endl;
         }
     }
 }
