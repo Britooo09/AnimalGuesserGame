@@ -1,6 +1,8 @@
 #include <iostream>
 #include "../include/node.h"
 #include "../include/programLogic.h"
+#include "../include/gameLogic.h"
+
 using namespace std;
 
 int main() {
@@ -21,7 +23,7 @@ int main() {
 	cout << "The root of this tree is: " << game.getRoot()->text << endl;
   
 	// Free all dynamic memory before exiting (by explicitly passing the root)
-	cleanMemory(ptrRoot);
+	cleanMemory(game.getRoot());
   
 	return 0;
 }
