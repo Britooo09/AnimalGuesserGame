@@ -5,41 +5,23 @@ using namespace std;
 
 int main() {
 	cout << "--- THIS IS A TEST. IT WILL BE REMOVED LATER ---" << endl << endl;
+// Create a simple tree for testing
+	//Node* ptrRoot = new Node("Is it a mammal?", true);
+	//ptrRoot->yes = new Node("Dog", false);
+	//ptrRoot->no = new Node("Lizard", false);
+	//ptrRoot->levelCode = "R";
 
-	Node* ptrRoot = new Node("Is it a mammal?", true);
-	ptrRoot->yes = new Node("Dog", false);
-	ptrRoot->no = new Node("Lizard", false);
 
-	Node* ptrCurrentNode = ptrRoot;
+// Test loading the tree from a file
+	//Node* ptrRoot = loadTree();
 
-	cout << "Current node: " << ptrCurrentNode->text << endl;
-	cout << "Yes branch: " << ptrCurrentNode->yes->text << endl;
-	cout << "No branch: " << ptrCurrentNode->no->text << endl << endl;
+	GameLogic game;
+	game.play();
 
-	cout << "Move to the \"yes\" branch (Dog):" << endl << endl;
-	ptrCurrentNode = ptrCurrentNode->yes;
-
-	cout << "Current node: " << ptrCurrentNode->text << endl;
-	cout << "Yes branch: " << ((ptrCurrentNode->yes == nullptr) ? ("Null") : (ptrCurrentNode->yes->text)) << endl;
-	cout << "No branch: " << ((ptrCurrentNode->no == nullptr) ? ("Null") : (ptrCurrentNode->no->text)) << endl << endl;
-
-	ptrCurrentNode->makeQuestion("Does it meow?", "Cat");
-
-	cout << "Check the values again:" << endl << endl;
-
-	cout << "Current node: " << ptrCurrentNode->text << endl;
-	cout << "Yes branch: " << ((ptrCurrentNode->yes == nullptr) ? ("Null") : (ptrCurrentNode->yes->text)) << endl;
-	cout << "No branch: " << ((ptrCurrentNode->no == nullptr) ? ("Null") : (ptrCurrentNode->no->text)) << endl << endl;
-
-	cout << "Move to the \"no\" branch (Dog):" << endl << endl;
-	ptrCurrentNode = ptrCurrentNode->no;
-
-	cout << "Current node: " << ptrCurrentNode->text << endl;
-	cout << "Yes branch: " << ((ptrCurrentNode->yes == nullptr) ? ("Null") : (ptrCurrentNode->yes->text)) << endl;
-	cout << "No branch: " << ((ptrCurrentNode->no == nullptr) ? ("Null") : (ptrCurrentNode->no->text)) << endl << endl;
-
+	cout << "The root of this tree is: " << game.getRoot()->text << endl;
+  
 	// Free all dynamic memory before exiting (by explicitly passing the root)
 	cleanMemory(ptrRoot);
-
+  
 	return 0;
 }

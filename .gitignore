@@ -29,3 +29,5 @@ x86/*
 *.so.*
 *.dll
 *.dylib
+
+CMakeSettings.json
