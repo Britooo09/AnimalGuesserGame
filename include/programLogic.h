@@ -5,7 +5,7 @@
 #include <regex>
 
 // When the program fails at guessing, this function creates a new question and animal
-void learn(Node* ptrCurrentNode, std::string newAnimal, std::string newQuestion, Node* ptrRoot);
+void learn(Node* ptrCurrentNode, std::string newQuestion, std::string newAnimal, Node* ptrRoot);
 
 // Save the tree structure to a file
 	// This function uses the to_json function to convert the tree into a JSON format and saves it to a file.

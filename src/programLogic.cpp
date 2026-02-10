@@ -1,10 +1,7 @@
 #include "../include/programLogic.h"
 #include "../include/node.h"
+#include "../include/gameLogic.h"
 
-
-void play() {
-
-}
 
 void learn(Node* ptrCurrentNode , std::string newQuestion, std::string newAnimal, Node* ptrRoot) {
 	std::cout << "Learning new animal: " << newAnimal << " with question: " << newQuestion << std::endl;
@@ -110,8 +107,52 @@ Node* loadTree() {
 
 	// Read the JSON content from the file into an ordered_json object
     nlohmann::ordered_json jsonObject;
-    inputFile >> jsonObject;
-    inputFile.close();
+    try {
+        inputFile >> jsonObject;
+        inputFile.close();
+    }
+    catch (nlohmann::json::parse_error& e) {
+        std::cerr << "JSON Parse Error: " << e.what() << std::endl;
+        inputFile.close();
+
+        // If loading failed, create a default tree
+        Node* ptrRoot = new Node("Is it a mammal?", true);
+        ptrRoot->levelCode = "R"; // Root node level code
+
+        ptrRoot->yes = new Node("Does it have fur?", true);
+        ptrRoot->yes->levelCode = "R1"; // Level code for the "yes" branch of the root
+        ptrRoot->yes->yes = new Node("Does it bark?", true);
+        ptrRoot->yes->yes->levelCode = "R11"; // Level code for the "yes" branch of the "yes" branch of the root
+        ptrRoot->yes->yes->yes = new Node("Dog", false);
+        ptrRoot->yes->yes->yes->levelCode = "R111"; // Level code for the "yes" branch of the "yes" branch of the "yes" branch of the root
+        ptrRoot->yes->yes->no = new Node("Cat", false);
+        ptrRoot->yes->yes->no->levelCode = "R110"; // Level code for the "no" branch of the "yes" branch of the "yes" branch of the root
+        ptrRoot->yes->no = new Node("Does it have a trunk?", true);
+        ptrRoot->yes->no->levelCode = "R10"; // Level code for the "no" branch of the "yes" branch of the root
+        ptrRoot->yes->no->yes = new Node("Elephant", false);
+        ptrRoot->yes->no->yes->levelCode = "R101"; // Level code for the "yes" branch of the "no" branch of the "yes" branch of the root
+        ptrRoot->yes->no->no = new Node("Dolphin", false);
+        ptrRoot->yes->no->no->levelCode = "R100"; // Level code for the "no" branch of the "no" branch of the "yes" branch of the root
+
+        ptrRoot->no = new Node("Does it fly?", true);
+        ptrRoot->no->levelCode = "R0"; // Level code for the "no" branch of the root
+        ptrRoot->no->yes = new Node("Does it have a beak?", true);
+        ptrRoot->no->yes->levelCode = "R01"; // Level code for the "yes" branch of the "no" branch of the root
+        ptrRoot->no->yes->yes = new Node("Eagle", false);
+        ptrRoot->no->yes->yes->levelCode = "R011"; // Level code for the "yes" branch of the "yes" branch of the "no" branch of the root
+        ptrRoot->no->yes->no = new Node("Bat", false);
+        ptrRoot->no->yes->no->levelCode = "R010"; // Level code for the "no" branch of the "yes" branch of the "no" branch of the root
+        ptrRoot->no->no = new Node("Does it have scales?", true);
+        ptrRoot->no->no->levelCode = "R00"; // Level code for the "no" branch of the "no" branch of the root
+        ptrRoot->no->no->yes = new Node("Snake", false);
+        ptrRoot->no->no->yes->levelCode = "R001"; // Level code for the "yes" branch of the "no" branch of the "no" branch of the root
+        ptrRoot->no->no->no = new Node("Frog", false);
+        ptrRoot->no->no->no->levelCode = "R000"; // Level code for the "no" branch of the "no" branch of the "no" branch of the root
+
+		saveTree(ptrRoot);
+        return ptrRoot;
+    }
+    
 
 	// Create a pointer for the root node and populate it using the from_json function
     Node* ptrRoot = nullptr;

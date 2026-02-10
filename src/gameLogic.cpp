@@ -1,25 +1,10 @@
 #include "../include/gameLogic.h"
+#include "../include/programLogic.h"
 #include <iostream>
 
 GameLogic::GameLogic() {
-    // Initial tree
-    ptrRoot = new Node("Is it a mammal?", true);
-    ptrRoot->yes = new Node("Does it have fur?", true);
-    ptrRoot->yes->yes = new Node("Does it bark?", true);
-    ptrRoot->yes->yes->yes = new Node("Dog", false);
-    ptrRoot->yes->yes->no = new Node("Cat", false);
-    ptrRoot->yes->no = new Node("Does it have a trunk?", true);
-    ptrRoot->yes->no->yes = new Node("Elephant", false);
-    ptrRoot->yes->no->no = new Node("Dolphin", false);
-
-    ptrRoot->no = new Node("Does it fly?", true);
-    ptrRoot->no->yes = new Node("Does it have a beak?", true);
-    ptrRoot->no->yes->yes = new Node("Eagle", false);
-    ptrRoot->no->yes->no = new Node("Bat", false);
-    ptrRoot->no->no = new Node("Does it have scales?", true);
-    ptrRoot->no->no->yes = new Node("Snake", false);
-    ptrRoot->no->no->no = new Node("Frog", false);
-
+    // Attempt to load the tree from a file
+    ptrRoot = loadTree();
     ptrCurrentNode = nullptr;
 }
 
@@ -91,8 +76,14 @@ void GameLogic::cliHandleAnimalNode(Node* ptrNode) {
             questionLoop(alternativePath);
         }
         else {
+			std::string newAnimal, newQuestion;
             std::cout << "I give up. I don't know this animal." << std::endl;
+			std::cout << "What animal were you thinking of? " << std::endl;
+			std::getline(std::cin, newAnimal);
+			std::cout << "Please provide a question that distinguishes " << newAnimal << " from " << ptrNode->text << "." << std::endl;
+			std::getline(std::cin, newQuestion);
 			// Here you could implement learning logic to add the new animal
+			learn(ptrNode, newQuestion, newAnimal, getRoot()); // Placeholder values for learning
         }
     }
 }
