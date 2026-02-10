@@ -1,0 +1,28 @@
+{
+    "isQuestion": true,
+    "text": "[Level R] Is it a mammal?",
+    "yes": {
+        "isQuestion": true,
+        "text": "[Level R1] Does it meow?",
+        "yes": {
+            "isQuestion": false,
+            "text": "[Animal R11] Cat"
+        },
+        "no": {
+            "isQuestion": true,
+            "text": "[Level R10] Does it slither?",
+            "yes": {
+                "isQuestion": false,
+                "text": "[Animal R101] Snake"
+            },
+            "no": {
+                "isQuestion": false,
+                "text": "[Animal R100] Dog"
+            }
+        }
+    },
+    "no": {
+        "isQuestion": false,
+        "text": "[Animal R0] Lizard"
+    }
+}
