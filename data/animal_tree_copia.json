@@ -1,0 +1,556 @@
+{
+  "isQuestion": true,
+  "text": "[Level R] Is it a mammal?",
+  "yes": {
+    "isQuestion": true,
+    "text": "[Level R1] Does it have fur?",
+    "yes": {
+      "isQuestion": true,
+      "text": "[Level R11] Does it bark?",
+      "yes": {
+        "isQuestion": true,
+        "text": "[Level R111] Is it a domestic pet?",
+        "yes": {
+          "isQuestion": false,
+          "text": "[Animal R1111] Dog"
+        },
+        "no": {
+          "isQuestion": true,
+          "text": "[Level R1110] Does it live in a pack in the wild?",
+          "yes": {
+            "isQuestion": false,
+            "text": "[Animal R11101] Wolf"
+          },
+          "no": {
+            "isQuestion": false,
+            "text": "[Animal R11100] Coyote"
+          }
+        }
+      },
+      "no": {
+        "isQuestion": true,
+        "text": "[Level R110] Is it a feline (cat family)?",
+        "yes": {
+          "isQuestion": true,
+          "text": "[Level R1101] Is it the king of the jungle?",
+          "yes": {
+            "isQuestion": false,
+            "text": "[Animal R11011] Lion"
+          },
+          "no": {
+            "isQuestion": true,
+            "text": "[Level R11010] Does it have stripes?",
+            "yes": {
+              "isQuestion": false,
+              "text": "[Animal R110101] Tiger"
+            },
+            "no": {
+              "isQuestion": true,
+              "text": "[Level R110100] Is it a small house pet?",
+              "yes": {
+                "isQuestion": false,
+                "text": "[Animal R1101001] Cat"
+              },
+              "no": {
+                "isQuestion": true,
+                "text": "[Level R1101000] Does it have spots?",
+                "yes": {
+                  "isQuestion": false,
+                  "text": "[Animal R11010001] Cheetah"
+                },
+                "no": {
+                  "isQuestion": false,
+                  "text": "[Animal R11010000] Leopard"
+                }
+              }
+            }
+          }
+        },
+        "no": {
+          "isQuestion": true,
+          "text": "[Level R1100] Is it a bear?",
+          "yes": {
+            "isQuestion": true,
+            "text": "[Level R11001] Is it white?",
+            "yes": {
+              "isQuestion": false,
+              "text": "[Animal R110011] Polar Bear"
+            },
+            "no": {
+              "isQuestion": true,
+              "text": "[Level R110010] Does it eat bamboo?",
+              "yes": {
+                "isQuestion": false,
+                "text": "[Animal R1100101] Panda"
+              },
+              "no": {
+                "isQuestion": false,
+                "text": "[Animal R1100100] Grizzly Bear"
+              }
+            }
+          },
+          "no": {
+            "isQuestion": true,
+            "text": "[Level R11000] Is it a primate?",
+            "yes": {
+              "isQuestion": true,
+              "text": "[Level R110001] Is it a human?",
+              "yes": {
+                "isQuestion": false,
+                "text": "[Animal R1100011] Human"
+              },
+              "no": {
+                "isQuestion": true,
+                "text": "[Level R1100010] Is it a Gorilla?",
+                "yes": {
+                  "isQuestion": false,
+                  "text": "[Animal R11000101] Gorilla"
+                },
+                "no": {
+                  "isQuestion": false,
+                  "text": "[Animal R11000100] Chimpanzee"
+                }
+              }
+            },
+            "no": {
+              "isQuestion": true,
+              "text": "[Level R110000] Is it a small rodent?",
+              "yes": {
+                "isQuestion": true,
+                "text": "[Level R1100001] Does it have a bushy tail?",
+                "yes": {
+                  "isQuestion": false,
+                  "text": "[Animal R11000011] Squirrel"
+                },
+                "no": {
+                  "isQuestion": true,
+                  "text": "[Level R11000010] Is it a common pest?",
+                  "yes": {
+                    "isQuestion": false,
+                    "text": "[Animal R110000101] Rat"
+                  },
+                  "no": {
+                    "isQuestion": false,
+                    "text": "[Animal R110000100] Hamster"
+                  }
+                }
+              },
+              "no": {
+                "isQuestion": true,
+                "text": "[Level R1100000] Does it have long ears and hop?",
+                "yes": {
+                  "isQuestion": false,
+                  "text": "[Animal R11000001] Rabbit"
+                },
+                "no": {
+                  "isQuestion": false,
+                  "text": "[Animal R11000000] Fox"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "no": {
+      "isQuestion": true,
+      "text": "[Level R10] Does it have a trunk?",
+      "yes": {
+        "isQuestion": false,
+        "text": "[Animal R101] Elephant"
+      },
+      "no": {
+        "isQuestion": true,
+        "text": "[Level R100] Does it live in the ocean?",
+        "yes": {
+          "isQuestion": true,
+          "text": "[Level R1001] Is it the largest animal on Earth?",
+          "yes": {
+            "isQuestion": false,
+            "text": "[Animal R10011] Blue Whale"
+          },
+          "no": {
+            "isQuestion": true,
+            "text": "[Level R10010] Is it very intelligent and playful?",
+            "yes": {
+              "isQuestion": false,
+              "text": "[Animal R100101] Dolphin"
+            },
+            "no": {
+              "isQuestion": true,
+              "text": "[Level R100100] Does it have tusks?",
+              "yes": {
+                "isQuestion": false,
+                "text": "[Animal R1001001] Walrus"
+              },
+              "no": {
+                "isQuestion": false,
+                "text": "[Animal R1001000] Seal"
+              }
+            }
+          }
+        },
+        "no": {
+          "isQuestion": true,
+          "text": "[Level R1000] Does it have hooves?",
+          "yes": {
+            "isQuestion": true,
+            "text": "[Level R10001] Does it have a very long neck?",
+            "yes": {
+              "isQuestion": false,
+              "text": "[Animal R100011] Giraffe"
+            },
+            "no": {
+              "isQuestion": true,
+              "text": "[Level R100010] Does it have black and white stripes?",
+              "yes": {
+                "isQuestion": false,
+                "text": "[Animal R1000101] Zebra"
+              },
+              "no": {
+                "isQuestion": true,
+                "text": "[Level R1000100] Is it a farm animal?",
+                "yes": {
+                  "isQuestion": true,
+                  "text": "[Level R10001001] Does it give milk?",
+                  "yes": {
+                    "isQuestion": false,
+                    "text": "[Animal R100010011] Cow"
+                  },
+                  "no": {
+                    "isQuestion": true,
+                    "text": "[Level R100010010] Do we ride it?",
+                    "yes": {
+                      "isQuestion": false,
+                      "text": "[Animal R1000100101] Horse"
+                    },
+                    "no": {
+                      "isQuestion": false,
+                      "text": "[Animal R1000100100] Donkey"
+                    }
+                  }
+                },
+                "no": {
+                  "isQuestion": true,
+                  "text": "[Level R10001000] Does it have a horn on its nose?",
+                  "yes": {
+                    "isQuestion": false,
+                    "text": "[Animal R100010001] Rhinoceros"
+                  },
+                  "no": {
+                    "isQuestion": false,
+                    "text": "[Animal R100010000] Hippopotamus"
+                  }
+                }
+              }
+            }
+          },
+          "no": {
+            "isQuestion": true,
+            "text": "[Level R10000] Is it a marsupial (has a pouch)?",
+            "yes": {
+              "isQuestion": true,
+              "text": "[Level R100001] Does it jump and box?",
+              "yes": {
+                "isQuestion": false,
+                "text": "[Animal R1000011] Kangaroo"
+              },
+              "no": {
+                "isQuestion": false,
+                "text": "[Animal R1000010] Koala"
+              }
+            },
+            "no": {
+              "isQuestion": true,
+              "text": "[Level R100000] Does it have quills?",
+              "yes": {
+                "isQuestion": false,
+                "text": "[Animal R1000001] Porcupine"
+              },
+              "no": {
+                "isQuestion": false,
+                "text": "[Animal R1000000] Platypus"
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "no": {
+    "isQuestion": true,
+    "text": "[Level R0] Does it fly?",
+    "yes": {
+      "isQuestion": true,
+      "text": "[Level R01] Does it have feathers?",
+      "yes": {
+        "isQuestion": true,
+        "text": "[Level R011] Is it a bird of prey?",
+        "yes": {
+          "isQuestion": true,
+          "text": "[Level R0111] Is it the national bird of the USA?",
+          "yes": {
+            "isQuestion": false,
+            "text": "[Animal R01111] Eagle"
+          },
+          "no": {
+            "isQuestion": true,
+            "text": "[Level R01110] Is it a nocturnal hunter?",
+            "yes": {
+              "isQuestion": false,
+              "text": "[Animal R011101] Owl"
+            },
+            "no": {
+              "isQuestion": false,
+              "text": "[Animal R011100] Hawk"
+            }
+          }
+        },
+        "no": {
+          "isQuestion": true,
+          "text": "[Level R0110] Can it talk or mimic voices?",
+          "yes": {
+            "isQuestion": false,
+            "text": "[Animal R01101] Parrot"
+          },
+          "no": {
+            "isQuestion": true,
+            "text": "[Level R01100] Is it very small and hovers?",
+            "yes": {
+              "isQuestion": false,
+              "text": "[Animal R011001] Hummingbird"
+            },
+            "no": {
+              "isQuestion": true,
+              "text": "[Level R011000] Is it a farm bird?",
+              "yes": {
+                "isQuestion": true,
+                "text": "[Level R0110001] Does it say 'Gobble'?",
+                "yes": {
+                  "isQuestion": false,
+                  "text": "[Animal R01100011] Turkey"
+                },
+                "no": {
+                  "isQuestion": false,
+                  "text": "[Animal R01100010] Chicken"
+                }
+              },
+              "no": {
+                "isQuestion": false,
+                "text": "[Animal R0110000] Sparrow"
+              }
+            }
+          }
+        }
+      },
+      "no": {
+        "isQuestion": true,
+        "text": "[Level R010] Is it an insect?",
+        "yes": {
+          "isQuestion": true,
+          "text": "[Level R0101] Does it make honey?",
+          "yes": {
+            "isQuestion": false,
+            "text": "[Animal R01011] Bee"
+          },
+          "no": {
+            "isQuestion": true,
+            "text": "[Level R01010] Is it known for beautiful wings?",
+            "yes": {
+              "isQuestion": false,
+              "text": "[Animal R010101] Butterfly"
+            },
+            "no": {
+              "isQuestion": true,
+              "text": "[Level R010100] Does it bite and suck blood?",
+              "yes": {
+                "isQuestion": false,
+                "text": "[Animal R0101001] Mosquito"
+              },
+              "no": {
+                "isQuestion": false,
+                "text": "[Animal R0101000] Dragonfly"
+              }
+            }
+          }
+        },
+        "no": {
+          "isQuestion": false,
+          "text": "[Animal R0100] Bat"
+        }
+      }
+    },
+    "no": {
+      "isQuestion": true,
+      "text": "[Level R00] Does it have scales?",
+      "yes": {
+        "isQuestion": true,
+        "text": "[Level R001] Does it have legs?",
+        "yes": {
+          "isQuestion": true,
+          "text": "[Level R0011] Does it have a shell?",
+          "yes": {
+            "isQuestion": true,
+            "text": "[Level R00111] Does it live in the ocean?",
+            "yes": {
+              "isQuestion": false,
+              "text": "[Animal R001111] Sea Turtle"
+            },
+            "no": {
+              "isQuestion": false,
+              "text": "[Animal R001110] Tortoise"
+            }
+          },
+          "no": {
+            "isQuestion": true,
+            "text": "[Level R00110] Is it a large predator with a big snout?",
+            "yes": {
+              "isQuestion": true,
+              "text": "[Level R001101] Does it have a V-shaped snout?",
+              "yes": {
+                "isQuestion": false,
+                "text": "[Animal R0011011] Crocodile"
+              },
+              "no": {
+                "isQuestion": false,
+                "text": "[Animal R0011010] Alligator"
+              }
+            },
+            "no": {
+              "isQuestion": true,
+              "text": "[Level R001100] Can it change its color?",
+              "yes": {
+                "isQuestion": false,
+                "text": "[Animal R0011001] Chameleon"
+              },
+              "no": {
+                "isQuestion": false,
+                "text": "[Animal R0011000] Iguana"
+              }
+            }
+          }
+        },
+        "no": {
+          "isQuestion": true,
+          "text": "[Level R0010] Does it live in the water?",
+          "yes": {
+            "isQuestion": true,
+            "text": "[Level R00101] Is it a dangerous fish?",
+            "yes": {
+              "isQuestion": true,
+              "text": "[Level R001011] Does it have a hammer-shaped head?",
+              "yes": {
+                "isQuestion": false,
+                "text": "[Animal R0010111] Hammerhead Shark"
+              },
+              "no": {
+                "isQuestion": false,
+                "text": "[Animal R0010110] Great White Shark"
+              }
+            },
+            "no": {
+              "isQuestion": true,
+              "text": "[Level R001010] Is it a common pet fish?",
+              "yes": {
+                "isQuestion": false,
+                "text": "[Animal R0010101] Goldfish"
+              },
+              "no": {
+                "isQuestion": false,
+                "text": "[Animal R0010100] Salmon"
+              }
+            }
+          },
+          "no": {
+            "isQuestion": true,
+            "text": "[Level R00100] Is it venomous?",
+            "yes": {
+              "isQuestion": false,
+              "text": "[Animal R001001] Cobra"
+            },
+            "no": {
+              "isQuestion": false,
+              "text": "[Animal R001000] Snake"
+            }
+          }
+        }
+      },
+      "no": {
+        "isQuestion": true,
+        "text": "[Level R000] Does it have 8 legs?",
+        "yes": {
+          "isQuestion": true,
+          "text": "[Level R0001] Does it have a stinger tail?",
+          "yes": {
+            "isQuestion": false,
+            "text": "[Animal R00011] Scorpion"
+          },
+          "no": {
+            "isQuestion": true,
+            "text": "[Level R00010] Is it a Black Widow?",
+            "yes": {
+              "isQuestion": false,
+              "text": "[Animal R000101] Black Widow Spider"
+            },
+            "no": {
+              "isQuestion": false,
+              "text": "[Animal R000100] Tarantula"
+            }
+          }
+        },
+        "no": {
+          "isQuestion": true,
+          "text": "[Level R0000] Does it have tentacles?",
+          "yes": {
+            "isQuestion": true,
+            "text": "[Level R00001] Does it have 8 tentacles?",
+            "yes": {
+              "isQuestion": false,
+              "text": "[Animal R000011] Octopus"
+            },
+            "no": {
+              "isQuestion": false,
+              "text": "[Animal R000010] Squid"
+            }
+          },
+          "no": {
+            "isQuestion": true,
+            "text": "[Level R00000] Is it an amphibian?",
+            "yes": {
+              "isQuestion": true,
+              "text": "[Level R000001] Does it jump?",
+              "yes": {
+                "isQuestion": false,
+                "text": "[Animal R0000011] Frog"
+              },
+              "no": {
+                "isQuestion": false,
+                "text": "[Animal R0000010] Salamander"
+              }
+            },
+            "no": {
+              "isQuestion": true,
+              "text": "[Level R000000] Does it have a shell?",
+              "yes": {
+                "isQuestion": false,
+                "text": "[Animal R0000001] Snail"
+              },
+              "no": {
+                "isQuestion": true,
+                "text": "[Level R0000000] Is it a jelly-like sea creature?",
+                "yes": {
+                  "isQuestion": false,
+                  "text": "[Animal R00000001] Jellyfish"
+                },
+                "no": {
+                  "isQuestion": false,
+                  "text": "[Animal R00000000] Starfish"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
