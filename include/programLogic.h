@@ -20,5 +20,5 @@ std::string cleanText(std::string rawText);
 void from_json(const nlohmann::ordered_json& j, Node*& ptrNode);
 Node* loadTree();
 
-// Free all dynamic memory occupied by the tree
-void cleanMemory();
+// Free all dynamic memory occupied by the tree. The root is passed explicitly to avoid globals.
+void cleanMemory(Node* root);

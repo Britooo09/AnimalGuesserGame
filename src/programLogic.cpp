@@ -1,7 +1,17 @@
 #include "../include/programLogic.h"
 #include "../include/node.h"
 #include "../include/gameLogic.h"
+#include <iostream>
 
+// Recursive deletion in post-order (left, right, root)
+static void deleteTree(Node* node) {
+    std::cout << "Deleted node" << std::endl;
+    if (node == nullptr) return;
+    deleteTree(node->yes);
+    deleteTree(node->no);
+    delete node;
+	node = nullptr; // Avoid dangling pointers
+}
 
 void learn(Node* ptrCurrentNode , std::string newQuestion, std::string newAnimal, Node* ptrRoot) {
 	std::cout << "Learning new animal: " << newAnimal << " with question: " << newQuestion << std::endl;
@@ -153,7 +163,6 @@ Node* loadTree() {
         return ptrRoot;
     }
     
-
 	// Create a pointer for the root node and populate it using the from_json function
     Node* ptrRoot = nullptr;
     from_json(jsonObject, ptrRoot);
@@ -163,6 +172,7 @@ Node* loadTree() {
     return ptrRoot;
 }
 
-void cleanMemory() {
-
+void cleanMemory(Node* root) {
+    deleteTree(root);
+	std::cout << "All memory cleaned up." << std::endl;
 }
