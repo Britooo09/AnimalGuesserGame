@@ -101,4 +101,3 @@ void GameLogic::cliHandleAnimalNode(Node* ptrNode) {
         }
     }
 }
-
