@@ -1,5 +1,6 @@
-#include "../include/gameLogic.h"
-#include "../include/programLogic.h"
+#include "gameLogic.h"
+#include "globals.h"
+#include "programLogic.h"
 #include <iostream>
 
 GameLogic::GameLogic() {
@@ -9,7 +10,7 @@ GameLogic::GameLogic() {
 }
 
 void GameLogic::play() {
-    std::cout << "Animales cargados actualmente: " << countAnimals(getRoot()) << std::endl << std::endl;
+    std::cout << "Amount of animals currently loaded: " << countAnimals(getRoot()) << std::endl << std::endl;
     ptrCurrentNode = ptrRoot;
     questionLoop(ptrCurrentNode);
 }
@@ -18,11 +19,19 @@ Node* GameLogic::getRoot() {
     return ptrRoot;
 }
 
+Node* GameLogic::getCurrentNode() {
+    return ptrCurrentNode;
+}
+
+void GameLogic::setCurrentNode(Node* ptrNode) {
+    ptrCurrentNode = ptrNode;
+}
+
 void GameLogic::questionLoop(Node* ptrNode) {
     if (!ptrNode) return;
 
     if (ptrNode->isQuestion) {
-        Node* nextNode = answerHandler.processAnswer(ptrNode, cliInteraction(ptrNode));
+        Node* nextNode = answerHandler.processAnswer(ptrNode, RESPONSE);
         if (nextNode) {
             questionLoop(nextNode);
         }
@@ -43,18 +52,18 @@ bool GameLogic::isYes(const std::string& answer) {
     return (lower == "yes" || lower == "y");
 }
 
-std::string GameLogic::cliInteraction(Node* ptrNode) {
+void GameLogic::cliInteraction(Node* ptrNode) {
     std::cout << ptrNode->text << " (yes/no/probably yes/probably no): ";
     std::string userInput;
     std::getline(std::cin, userInput);
 
 	// Normalize the input
-    if (userInput == "y") return "yes";
-    if (userInput == "n") return "no";
-    if (userInput == "py") return "probably yes";
-    if (userInput == "pn") return "probably no";
+    if (userInput == "y") userInput = "yes";
+    if (userInput == "n") userInput = "no";
+    if (userInput == "py") userInput = "probably yes";
+    if (userInput == "pn") userInput = "probably no";
 
-	return userInput; // Return as is for further processing
+    RESPONSE = userInput; // Return as is for further processing
 }
 
 void GameLogic::cliHandleAnimalNode(Node* ptrNode) {
@@ -92,4 +101,3 @@ void GameLogic::cliHandleAnimalNode(Node* ptrNode) {
         }
     }
 }
-

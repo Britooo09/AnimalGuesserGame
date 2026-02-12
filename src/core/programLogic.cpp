@@ -1,6 +1,6 @@
-#include "../include/programLogic.h"
-#include "../include/node.h"
-#include "../include/gameLogic.h"
+#include "programLogic.h"
+#include "node.h"
+#include "gameLogic.h"
 #include <iostream>
 
 int countAnimals(Node* ptrRoot) {
@@ -58,7 +58,7 @@ void to_json(nlohmann::ordered_json& j, const Node* ptrSaveNode) {
 
 void saveTree(Node* ptrRoot) {
     // Define the path to the archive file
-    static const std::string ARCHIVE_PATH = "../../../data/animal_tree.json";
+    static const std::string ARCHIVE_PATH = "data/animal_tree.json";
 
     // Use ordered_json to ensure keys like "text" appear before "yes"/"no"
     nlohmann::ordered_json j;
@@ -119,7 +119,7 @@ void from_json(const nlohmann::ordered_json& j, Node*& ptrNode) {
 
 Node* loadTree() {
 	// Define the path to the archive file
-    static const std::string ARCHIVE_PATH = "../../../data/animal_tree.json";
+    static const std::string ARCHIVE_PATH = "data/animal_tree.json";
 
 	// Attempt to open the file
     std::ifstream inputFile(ARCHIVE_PATH);
@@ -127,7 +127,6 @@ Node* loadTree() {
 	// If the file doesn't exist, return nullptr to indicate that we should start with a default tree
     if (!inputFile.is_open()) {
         std::cout << "No existing backup found. Starting with default tree." << std::endl;
-        return nullptr;
     }
 
 	// Read the JSON content from the file into an ordered_json object

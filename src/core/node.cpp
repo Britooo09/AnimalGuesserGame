@@ -1,4 +1,4 @@
-#include "../include/node.h"
+#include "node.h"
 #include <string>
 
 Node::Node(std::string t, bool q) : text(t), isQuestion(q), yes(nullptr), no(nullptr) {}
