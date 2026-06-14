@@ -45,8 +45,6 @@ For Windows, it is highly recommended to use **Visual Studio 2022 (MSVC)** as th
    windeployqt path/to/build/Desktop_Qt_[qt_version]_MSVC2022_64bit-Release/animalguesser_gui.exe
    ```
 
----
-
 ### Linux (Using Docker & linuxdeployqt)
 
 To guarantee compatibility across different Linux distributions, the deployment package is built using a clean **Ubuntu 22.04 (Jammy Jellyfish)** Docker container and `linuxdeployqt`. Follow these steps from the root directory of the project:
@@ -67,7 +65,7 @@ apt update && apt install -y build-essential cmake qt6-base-dev wget libgl1-mesa
 Navigate to the mounted application directory, create the target build folder, and compile in **Release** mode:
 ```bash
 cd /app
-mkdir build-linux && cd build-linux
+mkdir build && cd build
 cmake -DCMAKE_BUILD_TYPE=Release ..
 cmake --build .
 ```
