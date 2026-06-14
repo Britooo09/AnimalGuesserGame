@@ -2,6 +2,14 @@
 
 A C++20 project that implements a classic animal guessing game using a binary tree structure. The game can be played via a Qt-based GUI. The project is modular, separating core logic from the user interface, and is designed for easy extension and portability.
 
+**Made by**:
+
+* [Barrios, Bismark](https://github.com/Bismark1712); CI: 31.087.158
+* [Brito, José](https://github.com/Britooo09); CI: 30.515.175
+* [Cedeño, Geomar](https://github.com/gessaan); CI: 30.834.323
+* [Guzmán, Gabriela](https://github.com/GabyGuzMa); CI: 30.905.655
+* [Ramírez, Leonardo](https://github.com/LeXilium11); CI: 31.483.681
+
 ## Features
 
 - **Animal guessing game**: The program tries to guess the animal you are thinking of by asking yes/no questions.
