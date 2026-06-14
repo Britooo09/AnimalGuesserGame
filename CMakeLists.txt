@@ -31,9 +31,7 @@ if(Qt6_FOUND)
     file(GLOB GUI_SOURCES "src/gui/*.cpp" "src/gui/*.h" "src/gui/*.ui" "*.qrc")
     add_executable(animalguesser_gui ${GUI_SOURCES})
     target_link_libraries(animalguesser_gui PRIVATE GameCore Qt6::Widgets)
-    
-    # Opcional: Evita que se abra una consola negra al lanzar la GUI en Windows
-    # set_target_properties(animalguesser_gui PROPERTIES WIN32_EXECUTABLE TRUE)
+
 else()
     message(WARNING "Qt6 not found. Target 'animalguesser_gui' will not be created.")
 endif()
